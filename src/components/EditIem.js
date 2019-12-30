@@ -26,6 +26,10 @@ class EditItem extends React.Component {
   };
 
   handleOk = () => {
+    this.props.editTask({
+      id: this.props.el.id, 
+      task: this.state.inputText
+    })
     this.setState({
       confirmLoading: true
     });
@@ -53,12 +57,7 @@ class EditItem extends React.Component {
         <Modal
           title="Edit Your Task"
           visible={this.state.visible}
-          onOk={() => {
-            this.props.editTask({
-              id: this.props.el.id, 
-              task: this.state.inputText
-            })
-          }}
+          onOk={this.handleOk}
           className="task-input"
           confirmLoading={this.state.confirmLoading}
           onCancel={this.handleCancel}
