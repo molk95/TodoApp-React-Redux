@@ -30,6 +30,7 @@ class EditItem extends React.Component {
       id: this.props.el.id, 
       task: this.state.inputText
     })
+    
     this.setState({
       confirmLoading: true
     });
